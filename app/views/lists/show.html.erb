@@ -1,0 +1,30 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path('madai-MznG0RnHa0c-unsplash.jpg') %>)">
+  <div class="container">
+    <h1><%= @list.name %></h1>
+  </div>
+</div>
+<br>
+<%= link_to "Add a bookmark", new_list_bookmark_path(@list), class:'btn btn-success my-2 my-sm-0" type="submit' %>
+
+<div class="cards">
+  <% @movies.each do |movie| %>
+    <div class="card">
+      <div class="card-image" style="background-image: url(<%= movie.poster_url %>)"></div>
+      <div class="card-content">
+        <h2 class="card-title">
+          <strong><%= movie.title %></strong>
+          <span class="rating">• <%= movie.rating %> ⭐</span>
+        </h2>
+        <p class="overview"><%= movie.overview %></p>
+
+        <% bookmark = @list.bookmarks.find_by(movie: movie) %>
+        <% if bookmark && bookmark.comment.present? %>
+          <p class="comment"><i><%= bookmark.comment %></i></p>
+          <%= link_to "Remove", list_bookmark_path(@list, bookmark), method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "delete-link" %>
+        <% end %>
+
+      </div>
+    </div>
+  <% end %>
+</div>
+

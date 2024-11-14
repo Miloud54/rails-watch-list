@@ -1,0 +1,16 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path('simon-ray-nLl5sJnElxY-unsplash.jpg') %>)">
+  <div class="container">
+    <h1>MY LISTS</h1>
+  </div>
+</div>
+<br>
+
+<div class="cards">
+  <% @lists.each do |list| %>
+    <%= link_to list_path(list), class: "card-category", style: "background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))" do %>
+      <div>
+        <h2><%= list.name %></h2>
+      </div>
+    <% end %>
+  <% end %>
+</div>
