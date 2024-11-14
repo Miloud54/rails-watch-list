@@ -20,11 +20,9 @@
         <% bookmark = @list.bookmarks.find_by(movie: movie) %>
         <% if bookmark && bookmark.comment.present? %>
           <p class="comment"><i><%= bookmark.comment %></i></p>
-          <%= link_to "Remove", list_bookmark_path(@list, bookmark), method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "delete-link" %>
+          <%= link_to "Delete", bookmark_path(bookmark), class: "delete-link", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
         <% end %>
-
       </div>
     </div>
   <% end %>
 </div>
-
