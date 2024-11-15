@@ -4,7 +4,7 @@
   </div>
 </div>
 <br>
-<%= link_to "Add a bookmark", new_list_bookmark_path(@list), class:'btn btn-success my-2 my-sm-0" type="submit' %>
+<%= link_to "Add a bookmark", new_list_bookmark_path(@list), class: 'btn btn-success my-2 my-sm-0 ms-3', type: 'submit' %>
 
 <div class="cards">
   <% @movies.each do |movie| %>
@@ -16,7 +16,6 @@
           <span class="rating">• <%= movie.rating %> ⭐</span>
         </h2>
         <p class="overview"><%= movie.overview %></p>
-
         <% bookmark = @list.bookmarks.find_by(movie: movie) %>
         <% if bookmark && bookmark.comment.present? %>
           <p class="comment"><i><%= bookmark.comment %></i></p>
@@ -25,4 +24,28 @@
       </div>
     </div>
   <% end %>
+</div>
+
+<div class="reviews">
+  <div class="display-reviews">
+    <h2>Reviews</h2>
+    <% @reviews.each do |review| %>
+      <div class="review">
+        <div class="review-comment">
+          <strong><%= review.rating %></strong>
+          <br>
+          <p><%= review.comment %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="add-review">
+    <h3>Add your review</h3>
+    <%= simple_form_for([@list, @review]) do |f| %>
+      <%= f.input :comment %>
+      <%= f.input :rating %>
+      <%= f.submit "Submit review", class: "btn btn-primary" %>
+    <% end %>
+  </div>
 </div>

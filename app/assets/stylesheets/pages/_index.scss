@@ -61,7 +61,7 @@
   text-decoration: none;
 }
 
-.cards-lists {
+.cards-index {
   display: flex;
   flex-wrap: wrap; /* Permet de revenir à la ligne si l'écran est trop petit */
   gap: 20px; /* Espacement entre les cartes */
@@ -69,10 +69,19 @@
   padding: 20px;
 }
 
+.card-index {
+  width: 300px; /* Largeur fixe pour les cartes */
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: white;
+  transition: transform 0.2s, box-shadow 0.2s;
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 
 .card-category {
-  background-size: cover;
-  background-position: center;
   height: 180px;
   display: flex;
   justify-content: center;
@@ -86,48 +95,16 @@
   text-decoration: none;
 }
 
-.cards-lists {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  padding: 20px;
-}
-
-.card-category {
-  width: 300px;
-  position: relative;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease;
-}
-
-.card-category:hover {
-  transform: scale(1.05);
-}
-
-.card-link {
-  display: block;
-  width: 100%;
-  height: 100%;
-  color: white;
-  text-decoration: none;
-  background-size: cover;
-  background-position: center;
-}
-
-.card-content {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 20px;
-  background: rgba(0, 0, 0, 0.5);
-  text-align: center;
-}
-
 .card-title {
-  font-size: 1.5em;
-  margin: 0;
-  color: #fff;
+  color: white; /* Définit la couleur du texte en blanc */
+  font-size: 24px;
+}
+
+.card-title a {
+  color: white; /* Définit la couleur du lien en blanc */
+  text-decoration: none; /* Supprime le soulignement */
+}
+
+.card-title a:hover {
+  color: #ff40e2; /* Change la couleur au survol (optionnel) */
 }

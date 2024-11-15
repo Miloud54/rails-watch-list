@@ -5,14 +5,14 @@
 </div>
 <br>
 
-<div class="cards-lists">
+<div class="cards-index">
   <% @lists.each do |list| %>
-    <div class="card-category">
-      <%= link_to list_path(list), class: "card-link", style: "background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(#{asset_path('daizy-isumi-u6Y2X9M8hwk-unsplash.jpg')}));" do %>
+    <div class="card-index" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(<%= asset_path('daizy-isumi-u6Y2X9M8hwk-unsplash.jpg') %>)">
+      <div class="card-category">
         <div class="card-content">
-          <h2 class="card-title"><%= list.name %></h2>
+          <h2 class="card-title"><%= link_to list.name, list_path(list) %></h2>
         </div>
-      <% end %>
+      </div>
     </div>
   <% end %>
 </div>
