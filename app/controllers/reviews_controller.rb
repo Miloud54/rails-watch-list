@@ -5,6 +5,7 @@ class ReviewsController < ApplicationController
   end
 
   def create
+    @list = List.find(params[:list_id])
     @review = Review.new(review_params)
     @review.list = @list
     if @review.save
